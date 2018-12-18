@@ -11,6 +11,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TMDB_Retriever {
 
+	public ArrayList<Movie> returnMovieArray(JSONArray movies) {
+
+		ArrayList<Movie> moviesArray = new ArrayList<>();
+
+		for (int i = 0; i < movies.length(); i++) {
+
+			JSONObject product = movies.getJSONObject(i);
+			moviesArray.add(new Movie(product.getString("title"), product.getString("release_date")));
+		}
+
+		return moviesArray;
+
+	}
+
 	/*
 	 * Returns the image path for the most popular movie, usable for creating hero
 	 * images for the website.

@@ -1,6 +1,8 @@
 package com.example.YHVT19_Backend_Labb1;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -36,16 +38,37 @@ public class API_Parser {
 			// The array for all the popular movies on page 1.
 			JSONArray moviesArray = jsonObject.getJSONArray("results");
 
-			// Prints the full path to the hero image.
-			System.out.println(movie_Info_Retriever.get_Hero_Image(moviesArray));
+//			for (Object obj : moviesArray) {
+//				System.out.println("For each array: " + obj);
+//			}
 
-			// Returns a list of the most popular movie titles from TMDB.
-			for (String string : movie_Info_Retriever.get_Movie_Titles(moviesArray)) {
-				System.out.println(string);
-			}
+//			// Prints the full path to the hero image.
+//			System.out.println(movie_Info_Retriever.get_Hero_Image(moviesArray));
+//
+//			// Returns a list of the most popular movie titles from TMDB.
+//			for (String string : movie_Info_Retriever.get_Movie_Titles(moviesArray)) {
+//				System.out.println(string);
+//			}
+//			// Returns a list of the most popular movie titles thumbnails from TMDB.
+//			for (String string : movie_Info_Retriever.get_Movie_Thumb(moviesArray)) {
+//				System.out.println(string);
+//			}
+
+			// TODO: Add functionality for sorting.
+
+			ArrayList<Movie> moviesArrayList = movie_Info_Retriever.returnMovieArray(moviesArray);
+
 			// Returns a list of the most popular movie titles thumbnails from TMDB.
-			for (String string : movie_Info_Retriever.get_Movie_Thumb(moviesArray)) {
-				System.out.println(string);
+			for (Movie movie : moviesArrayList) {
+				System.out.println("Objects from the movie array: \n" + movie.movieTitle + "\n" + movie.releaseDate);
+			}
+
+			Collections.sort(moviesArrayList, (m1, m2) -> m1.movieTitle.compareTo(m2.movieTitle));
+
+			// Returns a list of the most popular movie titles thumbnails from TMDB.
+			for (Movie movie : moviesArrayList) {
+				System.out.println(
+						"Objects from the ****NEW**** movie array: \n" + movie.movieTitle + "\n" + movie.releaseDate);
 			}
 
 		} catch (IOException e) {
