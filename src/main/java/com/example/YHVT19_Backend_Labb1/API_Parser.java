@@ -15,19 +15,19 @@ import okhttp3.Response;
 
 public class API_Parser {
 
+	static String API_Key = "eecc8ae5b1c378032fe7a8ca2ce11da9";
+	static String TMDB_URL = "https://api.themoviedb.org/3/movie/popular?api_key=";
+	static String LANGUAGE_AND_PAGES = "&language=en-US&page=1";
+
 	public static void main(String[] args) {
 
 		TMDB_Retriever movie_Info_Retriever = new TMDB_Retriever();
 
 		OkHttpClient client = new OkHttpClient();
 
-		String API_Key = "eecc8ae5b1c378032fe7a8ca2ce11da9";
-
 		MediaType mediaType = MediaType.parse("application/octet-stream");
 		RequestBody body = RequestBody.create(mediaType, "{}");
-		Request request = new Request.Builder()
-				.url("https://api.themoviedb.org/3/movie/popular?api_key=" + API_Key + "&language=en-US&page=1").get()
-				.build();
+		Request request = new Request.Builder().url(TMDB_URL + API_Key + LANGUAGE_AND_PAGES).get().build();
 
 		try {
 			Response response = client.newCall(request).execute();
@@ -37,22 +37,6 @@ public class API_Parser {
 
 			// The array for all the popular movies on page 1.
 			JSONArray moviesArray = jsonObject.getJSONArray("results");
-
-//			for (Object obj : moviesArray) {
-//				System.out.println("For each array: " + obj);
-//			}
-
-//			// Prints the full path to the hero image.
-//			System.out.println(movie_Info_Retriever.get_Hero_Image(moviesArray));
-//
-//			// Returns a list of the most popular movie titles from TMDB.
-//			for (String string : movie_Info_Retriever.get_Movie_Titles(moviesArray)) {
-//				System.out.println(string);
-//			}
-//			// Returns a list of the most popular movie titles thumbnails from TMDB.
-//			for (String string : movie_Info_Retriever.get_Movie_Thumb(moviesArray)) {
-//				System.out.println(string);
-//			}
 
 			// TODO: Add functionality for sorting.
 
