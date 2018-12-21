@@ -18,7 +18,8 @@ public class TMDB_Retriever {
 		for (int i = 0; i < movies.length(); i++) {
 
 			JSONObject product = movies.getJSONObject(i);
-			moviesArray.add(new Movie(product.getString("title"), product.getString("release_date")));
+			moviesArray.add(new Movie(product.getString("title"), product.getString("release_date"),
+					product.getInt("vote_average")));
 		}
 
 		return moviesArray;

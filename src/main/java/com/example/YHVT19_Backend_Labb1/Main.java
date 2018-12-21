@@ -25,7 +25,7 @@ public class Main {
 			switch (answer) {
 			case 1:
 				for (Movie movie : moviesArrayList) {
-					System.out.println(movie.movieTitle + "\n" + movie.releaseDate);
+					System.out.println(movie.movieTitle + "\n" + movie.releaseDate + "\n" + movie.vote_average);
 				}
 				break;
 			case 2:
