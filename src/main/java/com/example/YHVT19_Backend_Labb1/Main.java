@@ -13,19 +13,22 @@ public class Main {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		API_Parser api_Parser = new API_Parser();
 
-		ArrayList<Movie> moviesArrayList = api_Parser.arrayListReturner();
+		ArrayList<Movie> moviesArrayList = api_Parser.popularMoviesReturner();
 
 		while (true) {
 
 			System.out.println("Press 1 for viewing the most popular movies. "
 					+ "\nPress 2 for sorting the movies in alphabetical order."
-					+ "\nPress 3 for sorting movies after release date." + "\nPress 4 for reversing your movies list.");
+					+ "\nPress 3 for sorting movies after release date."
+					+ "\nPress 4 for reversing the order of your movies list."
+					+ "\nPress 5 to search for a movie in the TMDB database.");
 			int answer = Integer.parseInt(bufferedReader.readLine());
 
 			switch (answer) {
 			case 1:
 				for (Movie movie : moviesArrayList) {
-					System.out.println(movie.movieTitle + "\n" + movie.releaseDate + "\n" + movie.vote_average);
+					System.out.println("Movie title: " + movie.movieTitle + "\nRelease date: " + movie.releaseDate
+							+ "\nVote average: " + movie.vote_average + "\n********");
 				}
 				break;
 			case 2:
@@ -36,6 +39,14 @@ public class Main {
 				break;
 			case 4:
 				Collections.reverse(moviesArrayList);
+				break;
+			case 5:
+				System.out.println("Please enter the name of the movie you want to search for: ");
+				ArrayList<Movie> searchedMoviesArrayList = api_Parser.searchMoviesReturner(bufferedReader.readLine());
+				for (Movie movie : searchedMoviesArrayList) {
+					System.out.println("Movie title: " + movie.movieTitle + "\nRelease date: " + movie.releaseDate
+							+ "\nVote average: " + movie.vote_average + "\n********");
+				}
 				break;
 			default:
 				break;
