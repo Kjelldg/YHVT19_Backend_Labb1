@@ -18,7 +18,7 @@ public class API_Parser {
 	// clutter.
 	static String TMDB_POPULAR_MOVIES = "https://api.themoviedb.org/3/movie/popular?api_key=";
 	static String TMDB_SEARCH_MOVIES = "https://api.themoviedb.org/3/search/movie?api_key=";
-	static String TMDB_UPCOMING_MOVIES = "\"https://api.themoviedb.org/3/movie/top_rated?api_key=";
+	static String TMDB_UPCOMING_MOVIES = "https://api.themoviedb.org/3/movie/top_rated?api_key=";
 	static String API_Key = "eecc8ae5b1c378032fe7a8ca2ce11da9";
 	static String LANGUAGE_AND_PAGES = "&language=en-US&page=1";
 
@@ -84,7 +84,7 @@ public class API_Parser {
 
 	}
 
-	public ArrayList<Movie> upcomingMoviesReturner(String userQuery) {
+	public ArrayList<Movie> topRatedMoviesReturner() {
 
 		ArrayList<Movie> moviesArrayList = null;
 
