@@ -10,13 +10,16 @@ public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
+		// Bufferedreader is used for registering user input.
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-		API_Parser api_Parser = new API_Parser();
+		API_Parser api_Parser = new API_Parser(); // Class instantiating for API_Parser
 
+		// This list is populated from the API_Parser class, it contains the most
+		// popular movies.
 		ArrayList<Movie> moviesArrayList = api_Parser.popularMoviesReturner();
 
+		// This loop allows the user to perform the actions below:
 		while (true) {
-
 			System.out.println("Press 1 for viewing the most popular movies. "
 					+ "\nPress 2 to search for a movie in the TMDB database."
 					+ "\nPress 3 to view top rated movies in the TMDB database."

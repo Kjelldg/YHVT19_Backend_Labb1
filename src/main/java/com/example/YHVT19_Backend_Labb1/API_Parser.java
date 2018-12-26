@@ -22,6 +22,7 @@ public class API_Parser {
 	static String API_Key = "eecc8ae5b1c378032fe7a8ca2ce11da9";
 	static String LANGUAGE_AND_PAGES = "&language=en-US&page=1";
 
+	// This method returns the most popular movies as an arraylist.
 	public ArrayList<Movie> popularMoviesReturner() {
 
 		ArrayList<Movie> moviesArrayList = null;
@@ -52,6 +53,11 @@ public class API_Parser {
 
 	}
 
+	/*
+	 * This method allows the user to search for movies. A string is sent from the
+	 * Main class and used here for searching for a movie. An arraylist is then
+	 * returned with the results.
+	 */
 	public ArrayList<Movie> searchMoviesReturner(String userQuery) {
 
 		ArrayList<Movie> moviesArrayList = null;
@@ -84,6 +90,7 @@ public class API_Parser {
 
 	}
 
+	// This method returns the high rated movies as an arraylist.
 	public ArrayList<Movie> topRatedMoviesReturner() {
 
 		ArrayList<Movie> moviesArrayList = null;
