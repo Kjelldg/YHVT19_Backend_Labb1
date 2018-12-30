@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class TMDB_Retriever {
 
+	// Returns an array of movies from TMDB.
 	public ArrayList<Movie> returnMovieArray(JSONArray movies) {
 
 		ArrayList<Movie> moviesArray = new ArrayList<>();

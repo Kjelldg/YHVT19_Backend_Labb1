@@ -1,13 +1,21 @@
 package com.example.YHVT19_Backend_Labb1;
 
+/*
+ * This class represents a "movie" in the TMDB database. 
+ * Each movie has a number of properties, eg movieTitle or tagline.
+ * The API_Parser class has methods that populate an array with the Movie class.
+ */
+
 public class Movie {
 
+	// Properties for each Movie.
 	String movieTitle;
 	String releaseDate;
 	int vote_average;
 	int runtime;
 	String tagline;
 
+	// Constructor
 	public Movie(String movieTitle, String releaseDate, int vote_average) {
 		this.movieTitle = movieTitle;
 		this.releaseDate = releaseDate;
@@ -15,6 +23,8 @@ public class Movie {
 		this.runtime = runtime;
 		this.tagline = tagline;
 	}
+
+	// Getters and setters.
 
 	public String getMovieTitle() {
 		return movieTitle;
