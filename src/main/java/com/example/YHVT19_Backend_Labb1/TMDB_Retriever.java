@@ -20,7 +20,7 @@ public class TMDB_Retriever {
 
 			JSONObject product = movies.getJSONObject(i);
 			moviesArray.add(new Movie(product.getString("title"), product.getString("release_date"),
-					product.getInt("vote_average")));
+					product.getInt("vote_average"), product.getInt("id")));
 		}
 
 		return moviesArray;

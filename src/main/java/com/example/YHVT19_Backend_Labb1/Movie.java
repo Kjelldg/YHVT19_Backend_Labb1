@@ -13,18 +13,28 @@ public class Movie {
 	String releaseDate;
 	int vote_average;
 	int runtime;
+	int movieID;
 	String tagline;
 
 	// Constructor
-	public Movie(String movieTitle, String releaseDate, int vote_average) {
+	public Movie(String movieTitle, String releaseDate, int vote_average, int movieID) {
 		this.movieTitle = movieTitle;
 		this.releaseDate = releaseDate;
 		this.vote_average = vote_average;
+		this.movieID = movieID;
 		this.runtime = runtime;
 		this.tagline = tagline;
 	}
 
 	// Getters and setters.
+
+	public int getMovieID() {
+		return movieID;
+	}
+
+	public void setMovieID(int movieID) {
+		this.movieID = movieID;
+	}
 
 	public String getMovieTitle() {
 		return movieTitle;

@@ -33,7 +33,7 @@ public class Main {
 			case 1:
 				for (Movie movie : moviesArrayList) {
 					System.out.println("Movie title: " + movie.movieTitle + "\nRelease date: " + movie.releaseDate
-							+ "\nVote average: " + movie.vote_average + "\n********");
+							+ "\nVote average: " + movie.vote_average + "\nMovie id: " + movie.movieID + "\n********");
 				}
 				break;
 			case 2:
