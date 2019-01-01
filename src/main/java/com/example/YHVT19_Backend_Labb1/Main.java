@@ -26,7 +26,8 @@ public class Main {
 					+ "\nPress 4 for sorting the movies in alphabetical order."
 					+ "\nPress 5 for sorting movies after release date."
 					+ "\nPress 6 for sorting movies after vote average."
-					+ "\nPress 7 for reversing the order of your movies list.");
+					+ "\nPress 7 for reversing the order of your movies list."
+					+ "\nPress 8 for searching for similar movies to a movie of your choice.");
 			int answer = Integer.parseInt(bufferedReader.readLine());
 
 			switch (answer) {
@@ -63,7 +64,19 @@ public class Main {
 			case 7:
 				Collections.reverse(moviesArrayList);
 				break;
+			case 8:
+				System.out.println("Please enter the name of the movie you want to get similar movies for: ");
+				ArrayList<Movie> searchedMoviesArrayListForID = api_Parser
+						.searchMoviesReturner(bufferedReader.readLine());
+				int movieID = searchedMoviesArrayListForID.get(0).movieID;
+				ArrayList<Movie> similarMoviesArrayList = api_Parser.similarMoviesReturner(movieID);
+				for (Movie movie : similarMoviesArrayList) {
+					System.out.println("Movie title: " + movie.movieTitle + "\nRelease date: " + movie.releaseDate
+							+ "\nVote average: " + movie.vote_average + "\n********");
+				}
+				break;
 			default:
+				System.out.println("Invalid command.");
 				break;
 
 			}
