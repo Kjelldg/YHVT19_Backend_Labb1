@@ -122,6 +122,13 @@ public class API_Parser {
 
 	}
 
+	/*
+	 * This method allows the user to retrieve a movie similar to the movie searched
+	 * for. It takes an int, movieID which is passed to the URL in Request. The int
+	 * is retrieved from the "searchMoviesReturner" method. This is because you can
+	 * only use an int to search for similar movies. The searchMoviesReturner allows
+	 * you to use String.
+	 */
 	public ArrayList<Movie> similarMoviesReturner(int movieID) {
 
 		ArrayList<Movie> moviesArrayList = null;

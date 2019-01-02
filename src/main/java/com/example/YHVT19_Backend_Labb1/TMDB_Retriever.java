@@ -24,7 +24,6 @@ public class TMDB_Retriever {
 		}
 
 		return moviesArray;
-
 	}
 
 	/*
