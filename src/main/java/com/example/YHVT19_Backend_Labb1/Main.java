@@ -24,10 +24,11 @@ public class Main {
 					+ "\nPress 2 to search for a movie in the TMDB database."
 					+ "\nPress 3 to view top rated movies in the TMDB database."
 					+ "\nPress 4 for searching for similar movies to a movie of your choice."
-					+ "\nPress 5 for sorting the movies in alphabetical order."
-					+ "\nPress 6 for sorting movies after release date."
-					+ "\nPress 7 for sorting movies after vote average."
-					+ "\nPress 8 for reversing the order of your movies list.");
+					+ "\nPress 5 for retrieving a hero image of the most popular movie."
+					+ "\nPress 6 for sorting the movies in alphabetical order."
+					+ "\nPress 7 for sorting movies after release date."
+					+ "\nPress 8 for sorting movies after vote average."
+					+ "\nPress 9 for reversing the order of your movies list.");
 			int answer = Integer.parseInt(bufferedReader.readLine());
 
 			switch (answer) {
@@ -64,15 +65,19 @@ public class Main {
 				}
 				break;
 			case 5:
-				Collections.sort(moviesArrayList, (m1, m2) -> m1.movieTitle.compareTo(m2.movieTitle));
+				String heroImage = api_Parser.get_Hero_Image();
+				System.out.println(heroImage);
 				break;
 			case 6:
-				Collections.sort(moviesArrayList, (m1, m2) -> m1.releaseDate.compareTo(m2.releaseDate));
+				Collections.sort(moviesArrayList, (m1, m2) -> m1.movieTitle.compareTo(m2.movieTitle));
 				break;
 			case 7:
-				moviesArrayList.sort((m1, m2) -> Integer.compare(m2.vote_average, m1.vote_average));
+				Collections.sort(moviesArrayList, (m1, m2) -> m1.releaseDate.compareTo(m2.releaseDate));
 				break;
 			case 8:
+				moviesArrayList.sort((m1, m2) -> Integer.compare(m2.vote_average, m1.vote_average));
+				break;
+			case 9:
 				Collections.reverse(moviesArrayList);
 				break;
 			default:

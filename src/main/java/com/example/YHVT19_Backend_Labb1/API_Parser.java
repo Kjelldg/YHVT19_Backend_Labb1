@@ -55,6 +55,47 @@ public class API_Parser {
 	}
 
 	/*
+	 * Returns the image path for the most popular movie, usable for creating hero
+	 * images for the website.
+	 */
+	public String get_Hero_Image() {
+
+		ArrayList<Movie> moviesArrayList = null;
+
+		TMDB_Retriever movie_Info_Retriever = new TMDB_Retriever();
+
+		OkHttpClient client = new OkHttpClient();
+
+		MediaType mediaType = MediaType.parse("application/octet-stream");
+		RequestBody body = RequestBody.create(mediaType, "{}");
+		Request request = new Request.Builder().url(TMDB_POPULAR_MOVIES + API_Key + LANGUAGE_AND_PAGES).get().build();
+
+		try {
+			Response response = client.newCall(request).execute();
+
+			String responseData = response.body().string();
+			JSONObject jsonObject = new JSONObject(responseData);
+
+			// The array for all the popular movies on page 1.
+			JSONArray moviesArray = jsonObject.getJSONArray("results");
+
+			moviesArrayList = movie_Info_Retriever.returnMovieArray(moviesArray);
+
+			String url = "http://image.tmdb.org/t/p/w1280";
+			JSONObject firstMovie = moviesArray.getJSONObject(0);
+			String popular_Movie_HeroImage = firstMovie.getString("backdrop_path");
+
+			return url + popular_Movie_HeroImage;
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		return "Error.";
+
+	}
+
+	/*
 	 * This method allows the user to search for movies. A string is sent from the
 	 * Main class and used here for searching for a movie. An arraylist is then
 	 * returned with the results.
