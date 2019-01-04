@@ -27,7 +27,6 @@ public class Movie {
 	}
 
 	// Getters and setters.
-
 	public int getMovieID() {
 		return movieID;
 	}

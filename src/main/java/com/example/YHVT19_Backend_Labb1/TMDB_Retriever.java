@@ -22,21 +22,7 @@ public class TMDB_Retriever {
 			moviesArray.add(new Movie(product.getString("title"), product.getString("release_date"),
 					product.getInt("vote_average"), product.getInt("id")));
 		}
-
 		return moviesArray;
-	}
-
-	/*
-	 * Returns the image path for the most popular movie, usable for creating hero
-	 * images for the website.
-	 */
-	public String get_Hero_Image(JSONArray movies) {
-
-		String url = "http://image.tmdb.org/t/p/w1280";
-		JSONObject firstMovie = movies.getJSONObject(0);
-		String popular_Movie_HeroImage = firstMovie.getString("backdrop_path");
-
-		return url + popular_Movie_HeroImage;
 	}
 
 	// Returns a list of the most popular movie titles from TMDB.
