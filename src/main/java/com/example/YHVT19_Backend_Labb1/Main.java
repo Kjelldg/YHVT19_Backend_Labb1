@@ -17,9 +17,10 @@ public class Main {
 		// This list is populated from the API_Parser class, it contains the most
 		// popular movies.
 		ArrayList<Movie> moviesArrayList = api_Parser.popularMoviesReturner();
+		boolean loop = true;
 
 		// This loop allows the user to perform the actions below:
-		while (true) {
+		while (loop = true) {
 			System.out.println("Press 1 for viewing the most popular movies. "
 					+ "\nPress 2 to search for a movie in the TMDB database."
 					+ "\nPress 3 to view top rated movies in the TMDB database."
@@ -28,7 +29,8 @@ public class Main {
 					+ "\nPress 6 for sorting the movies in alphabetical order."
 					+ "\nPress 7 for sorting movies after release date."
 					+ "\nPress 8 for sorting movies after vote average."
-					+ "\nPress 9 for reversing the order of your movies list.");
+					+ "\nPress 9 for reversing the order of your movies list."
+					+ "\nPress 10 for exiting the program. ");
 			int answer = Integer.parseInt(bufferedReader.readLine());
 
 			switch (answer) {
@@ -80,12 +82,18 @@ public class Main {
 			case 9:
 				Collections.reverse(moviesArrayList);
 				break;
+			case 10:
+				System.out.println("Goodbye!");
+				loop = false;
+				break;
 			default:
 				System.out.println("Invalid command.");
 				break;
 			}
 
 		}
+
+		System.out.println("Program exited.");
 
 	}
 
