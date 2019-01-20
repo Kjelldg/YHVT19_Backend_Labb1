@@ -20,7 +20,7 @@ public class Main {
 		boolean loop = true;
 
 		// This loop allows the user to perform the actions below:
-		while (loop = true) {
+		while (loop == true) {
 			System.out.println("Press 1 for viewing the most popular movies. "
 					+ "\nPress 2 to search for a movie in the TMDB database."
 					+ "\nPress 3 to view top rated movies in the TMDB database."
